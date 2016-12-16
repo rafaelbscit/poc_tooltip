@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,14 +15,14 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-    <ScrollView
+    <FrameLayout
+            android:id="@+id/frame_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <FrameLayout
-
+        <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -35,100 +34,80 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:id="@+id/text_view_anchor"
@@ -136,131 +115,83 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@color/colorPrimaryDark"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Uma âncora"/>
+                        android:text="Uma âncora com tooltip em um Frame Layout!"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_margin="8dp"
-                        android:background="@android:color/black"
+                        android:background="@android:color/darker_gray"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
+                        android:text="Hello World! shduashh suahdush uhsduash uhsaduhas uhusahdsu uhasduah"/>
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/default_text_size"
-                        android:text="Hello World!"/>
             </LinearLayout>
-        </FrameLayout>
-    </ScrollView>
-</FrameLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

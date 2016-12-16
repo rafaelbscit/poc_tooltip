@@ -1,10 +1,11 @@
 package com.example.ronie.tooltip;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.example.ronie.tooltip.ui.Tooltip;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
         TextView textViewAnchor = (TextView) findViewById(R.id.text_view_anchor);
 
-        Tooltip tooltip = new Tooltip.Builder().title("Tooltip").build();
-        Tooltip.make(this, frameLayout, textViewAnchor, tooltip).show();
+        Tooltip.Builder builder = new Tooltip.Builder().title("Tooltip");
+        Tooltip.make(this, frameLayout, textViewAnchor, builder).show();
     }
 }

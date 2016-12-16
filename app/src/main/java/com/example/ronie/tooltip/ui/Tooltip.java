@@ -1,12 +1,13 @@
-package com.example.ronie.tooltip;
+package com.example.ronie.tooltip.ui;
 
 import android.content.Context;
 import android.support.annotation.IntDef;
 import android.support.v4.content.ContextCompat;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import com.example.ronie.tooltip.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -43,20 +44,22 @@ public class Tooltip {
         backgroundColor = builder.backgroundColor;
     }
 
-    public static TooltipView make(Context context, FrameLayout root, View anchor, Tooltip tooltip) {
+    public static TooltipView make(Context context,
+                                   FrameLayout root,
+                                   View anchor,
+                                   Tooltip.Builder builder) {
+
+        Tooltip tooltip = builder.build();
+
         TooltipView tooltipView = new TooltipView(context);
-        tooltipView.setVisibility(View.GONE);
+        tooltipView.hide();
         tooltipView.setAnchor(anchor);
-        tooltipView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                context.getResources().getDimensionPixelSize(R.dimen.default_text_size));
         tooltipView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
-        tooltipView.setTitle(tooltip.getTitle());
+        //tooltipView.setTitle(tooltip.getTitle());
 
         ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                400, 400);
         root.addView(tooltipView, layoutParams);
-
-        root.getLocationOnScreen(new int[2]);
 
         return tooltipView;
     }
