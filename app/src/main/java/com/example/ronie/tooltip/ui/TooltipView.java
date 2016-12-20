@@ -1,31 +1,30 @@
 package com.example.ronie.tooltip.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.ronie.tooltip.R;
+import static android.R.attr.width;
 
-public class TooltipView extends FrameLayout implements
+public class TooltipView extends TextView implements
+        //View.OnLayoutChangeListener,
         ViewTreeObserver.OnScrollChangedListener {
 
     private static final String TAG = TooltipView.class.getSimpleName();
 
     private static final int COORD_Y = 1;
     private static final int COORD_X = 0;
+    private static final int MARGIN_LEFT = 30;
+    private static final int MARGIN_RIGHT = 30;
+    private static final int MARGIN_TOP = -30;
 
     private View anchor;
     private Context context;
-    private View layout;
-    private TextView textView;
-    private ImageView background;
 
     public TooltipView(@NonNull Context context) {
         super(context);
@@ -33,19 +32,7 @@ public class TooltipView extends FrameLayout implements
         init();
     }
 
-    public void init(){
-        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        this.setLayoutParams(layoutParams);
-
-        LayoutInflater inflater = (LayoutInflater)
-                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        layout = inflater.inflate(R.layout.tooltip, this, false);
-        addView(layout);
-
-        //textView = (TextView) layout.findViewById(R.id.text_view);
-        //background = (ImageView) layout.findViewById(R.id.background);
+    public void init() {
     }
 
     public void setAnchor(@NonNull View anchor) {
@@ -53,7 +40,7 @@ public class TooltipView extends FrameLayout implements
     }
 
     public void setTitle(String title) {
-        textView.setText(title);
+        setText(title);
     }
 
     public void show() {
@@ -64,8 +51,7 @@ public class TooltipView extends FrameLayout implements
         setVisibility(View.GONE);
     }
 
-    public void setBackgroundColor(int color){
-       //background.setBackgroundColor(color);
+    public void setBackgroundColor(int color) {
         super.setBackgroundColor(color);
     }
 
@@ -82,53 +68,51 @@ public class TooltipView extends FrameLayout implements
     }
 
     @Override
-    protected void onLayout(boolean changed, int i, int i1, int i2, int i3) {
-        if(!changed){
-            return ;
-        }
-
-        int width = getWidth();
+    public void onScrollChanged() {
         int height = getHeight();
 
         int[] actualLocation = new int[2];
         anchor.getLocationOnScreen(actualLocation);
 
-        int x = actualLocation[COORD_X];
-        int y = actualLocation[COORD_Y];
-        Log.d(TAG, String.format("#onLayout# width:%s height:%s x:%s y:%s", width,
-                height, x, y));
+        int y = actualLocation[COORD_Y] + MARGIN_TOP;
+        Log.d(TAG, String.format("#onScrollChanged# height:%s y:%s", height, y));
 
-        setLeft(x);
-        setRight(x + width);
         setTop(y);
         setBottom(y + height);
 
         Log.d(TAG, "**************************************************************************");
         Log.d(TAG, String.format(
-                "#Anchor{onLayout}# [left:%s, right:%s, top:%s, bottom:%s, x:%s, y:%s]",
-                anchor.getLeft(), anchor.getRight(), anchor.getTop(), anchor.getBottom(), x, y));
-        Log.d(TAG, String.format("#Tooltip{onLayout}# [left:%s, right:%s, top:%s, bottom:%s]",
+                "#Anchor{onScrollChanged}# [left:%s, right:%s, top:%s, bottom:%s, y:%s]",
+                anchor.getLeft(), anchor.getRight(), anchor.getTop(), anchor.getBottom(), y));
+        Log.d(TAG, String.format("#Tooltip{onScrollChanged}# [left:%s, right:%s, top:%s, " +
+                        "bottom:%s]",
                 getLeft(), getRight(), getTop(), getBottom()));
         Log.d(TAG, "**************************************************************************");
     }
 
     @Override
-    public void onScrollChanged() {
-        int width = getWidth();
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        if (!changed) {
+            Log.d(TAG, "onLayout: ************ No changed!!!");
+            return;
+        }
         int height = getHeight();
+        int newWidth = getNewWidth();
 
         int[] actualLocation = new int[2];
         anchor.getLocationOnScreen(actualLocation);
 
-        int x = actualLocation[COORD_X];
-        int y = actualLocation[COORD_Y];
-        Log.d(TAG, String.format("#onLayoutChange# width:%s height:%s x:%s y:%s", width,
+        int x = 0 + MARGIN_LEFT;
+        int y = actualLocation[COORD_Y] + MARGIN_TOP;
+        Log.d(TAG, String.format("#onLayout# width:%s height:%s x:%s y:%s", width,
                 height, x, y));
 
         setLeft(x);
-        setRight(x + width);
+        setRight(x + newWidth);
         setTop(y);
         setBottom(y + height);
+
+        setWidth(newWidth);
 
         Log.d(TAG, "**************************************************************************");
         Log.d(TAG, String.format(
@@ -138,4 +122,20 @@ public class TooltipView extends FrameLayout implements
                 getLeft(), getRight(), getTop(), getBottom()));
         Log.d(TAG, "**************************************************************************");
     }
+
+    private int getNewWidth() {
+        int width = getWidth();
+
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int widthScreen = displaymetrics.widthPixels;
+
+        int newWidth = width;
+        if (widthScreen < (width + MARGIN_LEFT + MARGIN_RIGHT)) {
+            newWidth = width - MARGIN_RIGHT;
+        }
+
+        return newWidth;
+    }
+
 }

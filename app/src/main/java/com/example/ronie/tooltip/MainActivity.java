@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
         TextView textViewAnchor = (TextView) findViewById(R.id.text_view_anchor);
 
-        Tooltip.Builder builder = new Tooltip.Builder().title("Tooltip");
+        Tooltip.Builder builder = new Tooltip.Builder().title("Tooltip flutuante com o texto " +
+                "grande e com espaçamento a direita e esqueda de 30px.");
         Tooltip.make(this, frameLayout, textViewAnchor, builder).show();
     }
 }

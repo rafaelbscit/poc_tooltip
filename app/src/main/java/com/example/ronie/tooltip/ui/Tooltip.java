@@ -55,10 +55,11 @@ public class Tooltip {
         tooltipView.hide();
         tooltipView.setAnchor(anchor);
         tooltipView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
-        //tooltipView.setTitle(tooltip.getTitle());
+        tooltipView.setTitle(tooltip.getTitle());
+        tooltipView.setPadding(16, 16, 16, 16);
 
         ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(
-                400, 400);
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         root.addView(tooltipView, layoutParams);
 
         return tooltipView;

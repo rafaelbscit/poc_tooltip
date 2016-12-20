@@ -2,9 +2,10 @@
 <ImageView
         android:id="@+id/background"
         android:tint="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:focusable="true"
+        android:visibility="visible"
         android:scaleType="fitXY"
         android:layout_margin="0dp"
         android:src="@drawable/tooltip_white"
